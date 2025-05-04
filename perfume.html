@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÉLÉGANCE | Luxury Minimalist Perfumes</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f9f7f5;
+            color: #1a1a1a;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        /* Header */
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 2rem;
+        }
+        
+        nav a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 300;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background: #1a1a1a;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            background: url('https://i.pinimg.com/736x/a4/d4/52/a4d4527efd018f31dcfab2deae3df3f2.jpg') no-repeat center center;
+            background-size: cover;
+            animation: slideIn 1.5s ease-out;
+        }
+        
+        .hero-content {
+            width: 50%;
+            padding: 0 10%;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            color: #1a1a1a;
+            border: 1px solid #1a1a1a;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            color: #f9f7f5;
+        }
+        
+        .btn:hover:before {
+            left: 0;
+        }
+        
+        /* Collections */
+        .collections {
+            padding: 8rem 5%;
+            text-align: center;
+        }
+        
+        .collections h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .collections h2:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 1px;
+            background: #1a1a1a;
+            bottom: -15px;
+            left: 25%;
+        }
+        
+        .perfume-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .perfume-item {
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            color: white;
+            text-align: left;
+            transition: all 0.5s ease;
+        }
+        
+        .perfume-item:nth-child(1) {
+            background: url('img/perfume1.avif') no-repeat center center;
+            background-size: cover;
+        }
+        
+        .perfume-item:nth-child(2) {
+            background: url('img/perfume2.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        
+        .perfume-item:nth-child(3) {
+            background: url('img/perfume3.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        
+        .perfume-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            z-index: 0;
+        }
+        
+        .perfume-item > * {
+            position: relative;
+            z-index: 1;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .perfume-item:hover > * {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .perfume-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .perfume-item p {
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        /* About */
+        .about {
+            padding: 8rem 5%;
+            display: flex;
+            align-items: center;
+            background: #1a1a1a;
+            color: #f9f7f5;
+        }
+        
+        .about-image {
+            width: 50%;
+            height: 500px;
+            background: url('img/PF.jpg') no-repeat center center;
+            background-size: cover;
+            animation: fadeIn 2s ease-out;
+        }
+        
+        .about-content {
+            width: 50%;
+            padding: 0 5%;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .about p {
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 5rem 5% 2rem;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-links a {
+            color: #1a1a1a;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 0.7;
+        }
+        
+        .copyright {
+            font-weight: 300;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                height: auto;
+                padding-top: 100px;
+            }
+            
+            .hero-bg, .hero-content {
+                width: 100%;
+                position: relative;
+            }
+            
+            .hero-bg {
+                height: 300px;
+            }
+            
+            .hero-content {
+                padding: 3rem 5%;
+            }
+            
+            .perfume-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about {
+                flex-direction: column;
+            }
+            
+            .about-image, .about-content {
+                width: 100%;
+            }
+            
+            .about-image {
+                height: 300px;
+                margin-bottom: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">ÉLÉGANCE</a>
+        <nav>
+            <ul>
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Journal</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The Essence of Timeless Luxury</h1>
+            <p>Discover our exclusive collection of minimalist perfumes crafted with rare ingredients and uncompromising attention to detail. Each fragrance tells a story of elegance and refinement.</p>
+            <a href="#" class="btn">Explore Collections</a>
+        </div>
+        <div class="hero-bg"></div>
+    </section>
+    
+    <section class="collections">
+        <h2>Signature Collections</h2>
+        <p>Our carefully curated fragrances are designed to evoke emotion and create lasting impressions.</p>
+        
+        <div class="perfume-grid">
+            <div class="perfume-item">
+                <h3>Noir</h3>
+                <p>A mysterious blend of dark woods, vanilla, and amber for the sophisticated soul.</p>
+                <a href="#" class="btn">Discover</a>
+            </div>
+            <div class="perfume-item">
+                <h3>Blanc</h3>
+                <p>Crisp citrus notes with white florals create this luminous daytime fragrance.</p>
+                <a href="#" class="btn">Discover</a>
+            </div>
+            <div class="perfume-item">
+                <h3>Or</h3>
+                <p>Opulent saffron and oud combine for a truly luxurious evening scent.</p>
+                <a href="#" class="btn">Discover</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about">
+        <div class="about-image"></div>
+        <div class="about-content">
+            <h2>Our Philosophy</h2>
+            <p>ÉLÉGANCE was born from a desire to create perfumes that stand the test of time. In a world of fleeting trends, we focus on crafting scents with depth, character, and timeless appeal.</p>
+            <p>Each ingredient is meticulously sourced from around the world, ensuring the highest quality and most authentic expression of our perfumer's vision.</p>
+            <p>Our minimalist approach extends beyond our fragrances to our packaging and brand ethos, creating a complete experience of understated luxury.</p>
+            <a href="#" class="btn">Our Story</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-logo">ÉLÉGANCE</div>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Shipping Information</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <p class="copyright">© 2023 ÉLÉGANCE. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Simple animation trigger for perfume items
+        document.addEventListener('DOMContentLoaded', function() {
+            const perfumeItems = document.querySelectorAll('.perfume-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.querySelectorAll('*').forEach((el, index) => {
+                            setTimeout(() => {
+                                el.style.transform = 'translateY(0)';
+                                el.style.opacity = '1';
+                            }, index * 200);
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            perfumeItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
